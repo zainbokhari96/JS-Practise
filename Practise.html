@@ -1,0 +1,133 @@
+<body>
+  <h1>Revise JS</h1>
+</body>
+
+<script>
+  console.log("Page Is Working");
+
+  // For Reloading Of Page
+  function Reload() {
+    // For Printing Of Page
+    window.print();
+    // For Reloading Of Page
+    location.reload();
+  }
+
+  //   Cookies
+  document.cookie = "firstName=Zain Ali; max-age=" + 30 * 24 * 60 * 60;
+  ("path=/");
+  //  Delete Cookie
+  document.cookie = "firstName=;max-age=" + 0; "path=/";
+  console.log("All Cookies", decodeURIComponent(document.cookie));
+  document.cookie = "id=123; max-age=" + 30 * 24 * 60 * 60;
+  ("path=/");
+  // Get Cookies   
+  let cookies = document.cookie.split(";");
+  let secondCookie = null;
+  console.log("Cookies", cookies);
+  cookies.map((item) => {
+    if (item.split("=")[0] == " id") {
+      secondCookie = item;
+    }
+  });
+  console.log("Cookie 2", secondCookie);
+  const d = new Date();
+  d.setTime(d.getTime() + 10 * 24 * 60 * 60 * 1000);
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = "username=Ali;" + expires + ";path=/";
+
+  // Objects
+  let myObj = {
+    name: "Syed Zain Ali",
+    age: 24,
+    company: "InvoZone",
+  };
+  myObj["designation"] = "Software Engineer";
+  delete myObj["age"];
+  console.log(myObj);
+
+  // Object Methods
+  let myObj2 = {
+    fname: "Zain",
+    lname: "Ali",
+    fullName: function () {
+      return this.fname + " " + this.lname;
+    },
+  };
+  console.log(myObj2.fullName());
+
+  // Destructing Of Objects
+  let { name, company } = myObj;
+  console.log(company);
+
+  // Strings Methods
+  let str = "Hello World";
+  str = str.replace(/hello/gi, "Hi !");
+  console.log(str);
+  str = str.search(/world/gi);
+  console.log(str);
+  str = "Apple, Banana, Kiwi";
+  console.log(str.slice(7, 13));
+  console.log(str.split(",")); // Convert String to Array
+
+  // Array Methods
+  let arr = [10, 20, 30, 40];
+
+  // Every Function
+  let every = arr.every((item, index, arr) => {
+    return item >= 10;
+  });
+  console.log("Every Result", every);
+
+  // Filter Function
+  let filter = arr.filter((item) => {
+    return item > 20;
+  });
+  console.log("Filter Result", filter);
+
+  // For Each Method
+  arr.forEach((item) => {
+    console.log("forEach", item);
+  });
+
+  // Map Method
+  let newarr = arr.map((item) => {
+    return item * item;
+  });
+  console.log("Map Function Will Return", newarr);
+
+  // REDUCE FUNCTION
+  let num = [1, 2, 3, 4];
+  let final = num.reduce((value, number) => {
+    return (value = value + number);
+  });
+  console.log("This Is Reduced Value", final);
+
+  // Some Method
+  let some = num.some((item) => {
+    return item > 10;
+  });
+  console.log("This is some value", some);
+
+  // Splice Method
+  num.splice(4, 0, 5); //Add 5 at index 4
+  console.log("Splice Add", num);
+
+  num.splice(4, 1);
+  console.log("Splice Remove", num);
+
+  // Array to String
+  console.log(num.toString());
+  console.log(typeof num.join());
+
+  // Error Handling
+  let x = 10;
+  try {
+    if (x == 10) {
+      throw "Custom Error Occur";
+    } else {
+    }
+  } catch (e) {
+    console.log(e);
+  }
+</script>
